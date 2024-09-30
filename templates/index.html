@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>File Upload and Correlation Analysis</title>
+</head>
+<body>
+    <h1>Upload CSV or Excel File</h1>
+    <form action="/" method="POST" enctype="multipart/form-data">
+        <input type="file" name="file" required>
+        <button type="submit">Upload</button>
+    </form>
+
+    {% if columns %}
+    <h2>Select Correlated Columns for Analysis</h2>
+    <form action="{{ url_for('select_variables') }}" method="POST">
+        {% for column in columns %}
+        <label>
+            <input type="checkbox" name="columns" value="{{ column }}">{{ column }}
+        </label><br>
+        {% endfor %}
+        <button type="submit">Submit</button>
+    </form>
+    {% endif %}
+
+    <!-- Display any flash messages -->
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            <ul>
+                {% for message in messages %}
+                    <li>{{ message }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+    {% endwith %}
+</body>
+</html>
