@@ -1,0 +1,26 @@
+body {
+	font-family: Arial, sans-serif;
+	margin: 20px;
+}
+
+h1,
+h2 {
+	color: #333;
+}
+
+input[type="file"],
+input[type="submit"] {
+	margin-top: 10px;
+}
+
+ul {
+	list-style-type: none;
+	padding: 0;
+}
+
+ul li {
+	background-color: #f0f0f0;
+	margin-bottom: 5px;
+	padding: 10px;
+	border-radius: 5px;
+}
